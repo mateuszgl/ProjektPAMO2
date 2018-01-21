@@ -25,14 +25,14 @@ namespace Test2.ViewModels
             {
                 var _item = item as Item;
                 Items.Add(_item);
-                await DataStore.AddItemAsync(_item);
+                await App.Database.AddItemAsync(_item);
             });
 
             MessagingCenter.Subscribe<ItemDetailPage, Item>(this, "DeleteItem", async (obj, item) =>
             {
                 var _item = item as Item;
                 Items.Remove(_item);
-                await DataStore.DeleteItemAsync(_item);
+                await App.Database.DeleteItemAsync(_item);
             });
         }
 
@@ -46,7 +46,7 @@ namespace Test2.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await App.Database.GetItemsAsync();
                 foreach (var item in items)
                 {
                     Items.Add(item);
