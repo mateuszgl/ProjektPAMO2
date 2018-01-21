@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.Views.ItemDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Item.City}" FontSize="Medium"/>
+                        <Label Text=", " FontSize="Medium"/>
+                        <Label Text="{Binding Item.CountryCode}" FontSize="Medium"/>
+                        <Label Text="(" FontSize="Micro" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding WeatherObject.Coord.Lat}" FontSize="Micro" VerticalTextAlignment="Center"/>
+                        <Label Text=", " FontSize="Micro" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding WeatherObject.Coord.Lon}" FontSize="Micro" VerticalTextAlignment="Center"/>
+                        <Label Text=")" FontSize="Micro" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Weather:" FontSize="Medium" />
+                        <Label Text="{Binding WeatherObject.Weather[0].Main}" FontSize="Small" VerticalTextAlignment="Center"/>
+                        <Label Text=", " FontSize="Small" VerticalTextAlignment="Center" />
+                        <Label Text="{Binding WeatherObject.Main.Temp}" FontSize="Small" VerticalTextAlignment="Center"/>
+                        <Label Text="℃" FontSize="Small" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Wind speed:" FontSize="Medium" />
+                        <Label Text="{Binding WeatherObject.Wind.Speed}" FontSize="Small" VerticalTextAlignment="Center"/>
+                        <Label Text="m/s" FontSize="Small" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Dropping gold " FontSize="Small"/>
+                        <Label Text="{Binding Drop}" FontSize="Small"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.Views.AboutPage"
+             xmlns:vm="clr-namespace:Test2.ViewModels;"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16" Spacing="10">
+                <Label LineBreakMode="WordWrap" Text="Add your favourite gold dropping locations. Our app will tell you if you should drop gold there based on weather conditions."/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
