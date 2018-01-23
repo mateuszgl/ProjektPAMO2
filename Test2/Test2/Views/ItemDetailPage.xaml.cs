@@ -54,7 +54,7 @@ namespace Test2.Views
         {
             Weather = await service.GetResponse(item.City, item.CountryCode);
 
-            if (Weather.Wind.Speed <= 1.5)
+            if (Weather != null && Weather.Wind.Speed <= 1.5)
             {
                 viewModel.Drop = "approved.";
             }

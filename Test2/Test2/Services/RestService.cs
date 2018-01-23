@@ -24,9 +24,12 @@ namespace Test2.Services
 
         }
 
-        public async Task<WeatherObject> GetResponse(string city, string countryCode)
+        public async Task<WeatherObject> GetResponse(string city, string countryCode = "")
         {
-            var url = client.BaseAddress + city + "," + countryCode + apiKey;
+            var url = client.BaseAddress + city;
+            if (countryCode.Length != 0) url += "," + countryCode;
+            url += apiKey;
+
             var response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
